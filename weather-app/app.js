@@ -6,7 +6,7 @@ const forecast =require('./utils/forecast')
 const address = process.argv[2]
 
 if(!address){
-    console.log("provide location")
+    console.log("providee location")
 }
 else{
 const g = geocode(address,(error,{latitude,longitude,location}={})=>{
