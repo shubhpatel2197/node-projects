@@ -1,5 +1,3 @@
-const request = require('request');
-const { json } = require('stream/consumers');
 const geocode =require('./utils/geocode')
 const forecast =require('./utils/forecast')
 

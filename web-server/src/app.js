@@ -1,21 +1,18 @@
 const express = require('express')
 const path = require('path')
 const hbs = require('hbs')
-const { response } = require('express')
 const geocode =require('./utils/geocode')
 const forecast =require('./utils/forecast')
 
 const app = express()
-const publicpath=path.join(__dirname,'../public')
+const publicpath = path.join(__dirname,'../public')
 const viewspath = path.join(__dirname,'../templates/views')
 const partialspath = path.join(__dirname,'../templates/partials')
-
 
 app.set('view engine','hbs');
 app.set('views',viewspath)
 hbs.registerPartials(partialspath)
 app.use(express.static(publicpath))
-
 
 app.get('',(req,res)=>{
     res.render('index',{
@@ -23,6 +20,7 @@ app.get('',(req,res)=>{
         name:'Champion_patel'
     })
 })
+
 app.get('/about',(req,res)=>{
     res.render('about',{
         title:'about',
@@ -80,9 +78,6 @@ app.get('/products',(req,res)=>{
     }
 })
 
-
-
-
 app.get('/help/*',(req,res)=>{
     res.render('404',{
         title:'404',
@@ -90,6 +85,7 @@ app.get('/help/*',(req,res)=>{
         errormsg : "help page not found"
     })
 })
+
 app.get('*',(req,res)=>{
     res.render('404',{
         title:'404',
@@ -101,4 +97,6 @@ app.get('*',(req,res)=>{
 app.listen(3000,()=>{
     console.log('server on 3000')
 })
+
+
 
